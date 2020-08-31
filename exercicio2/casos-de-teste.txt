@@ -1,0 +1,73 @@
+Caso de teste 1 - CDT001
+
+  Título:
+
+    Alguns campos obrigatórios não estão marcados com asterisco
+
+  Pré-condições:
+
+    1 - Acessar a página http://demo.automationtesting.in/Register.html;
+
+  Passos do teste:
+
+    1 - Preencher todos os campos obrigatórios marcados com asterisco;
+    2 - Clicar no botão "Submit";
+
+  Resultado esperado:
+
+    O sistema é redirecionado para a próxima página ao clicar no botão "Submit";
+
+  Resultado encontrado:
+    
+    Ao clicar no botão do passo 2, o sistema informa que os campos "Date Of Birth", "Password" e "Confirm Password" são obrigatórios, porém os mesmos não estão marcados com asterisco;
+
+
+Caso de teste 2 - CDT002
+
+  Título:
+
+    Campo "Phone" não apresenta informação sobre o formato exigido
+
+  Pré-condições:
+
+    1 - Acessar a página http://demo.automationtesting.in/Register.html;
+    2 - Preencher todos os campos obrigatórios;
+    3 - Preencher os campos "Date Of Birth", "Password" e "Confirm Password" com informações válidas;
+    4 - Clicar no botão "Submit";
+
+  Passos do teste:
+
+    1 - No campo "Phone", adicionar um número de telefone celular no padrão: código de área + nono dígito + número do telefone;
+
+  Resultado esperado:
+
+    O sistema aceita o número inserido como válido e segue para a próxima pagina ao clicar em "Submit";
+
+  Resultado encontrado:
+
+    Ao clicar no botão do passo 4 o sistema exibe um tooltip de erro no campo "Phone" informando que "É preciso que o formato corresponda ao exigido". Porém, a página não apresenta de forma alguma qual é o formato exigido para este campo.
+
+
+Caso de teste 2 - CDT003
+
+  Título:
+
+    O botão de "Refresh" não avisa o usuário que os campos que possuem alguma informação inserida serão limpos
+
+  Pré-condições:
+
+    1 - Acessar a página http://demo.automationtesting.in/Register.html;
+
+  Passos do teste:
+
+    1 - Preencher alguns campos do formulário;
+    2 - Clicar no botão "Refresh";
+
+  Resultado esperado:
+
+    O sistema mostra um alerta avisando que os dados já inseridos serão apagados;
+
+  Resultado encontrado:
+
+    O sistema limpa todos os campos da tela imediatamente;
+

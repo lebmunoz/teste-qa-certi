@@ -1,0 +1,237 @@
+{
+	"info": {
+		"_postman_id": "9530f0aa-b2b6-4828-9f4c-4e163a64e485",
+		"name": "teste-certi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "numero_portugues",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "768bd5bc-9481-4f5f-a7fe-46d8b7d29b21",
+						"exec": [
+							"let numeros = pm.environment.get('numeros');",
+							"let extenso = pm.environment.get('extenso');",
+							"",
+							"if (!numeros) {",
+							"    numeros = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 14, 15, 39, 56, 73, 123, 1356, 22687, -123, -45, -3487]",
+							"}",
+							"",
+							"if (!extenso) {",
+							"    extenso = [",
+							"        'zero',",
+							"        'um',",
+							"        'dois',",
+							"        'tres',",
+							"        'quatro',",
+							"        'cinco',",
+							"        'seis',",
+							"        'sete',",
+							"        'oito',",
+							"        'nove',",
+							"        'dez',",
+							"        'onze',",
+							"        'quatorze',",
+							"        'quinze',",
+							"        'trinta e nove',",
+							"        'cinquenta e seis',",
+							"        'setenta e tres',",
+							"        'cento e vinte e tres',",
+							"        'mil trezentos e cinquenta e seis',",
+							"        'vinte dois mil seiscentos e oitenta e sete',",
+							"        'menos cento e vinte tres',",
+							"        'menos quarenta e cinco',",
+							"        'menos tres mil quatrocentos e oitenta e sete',",
+							"    ]",
+							"}",
+							"",
+							"let numeroAtual = numeros.shift();",
+							"let extensoAtual = extenso.shift();",
+							"",
+							"pm.environment.set(\"numero\", numeroAtual);",
+							"pm.environment.set('numeros', numeros);",
+							"pm.environment.set(\"ext\", extensoAtual);",
+							"pm.environment.set('extenso', extenso);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "951ef6d6-ce19-4a94-b800-6cfc5d94f5f9",
+						"exec": [
+							"let numeros = pm.environment.get('numeros');",
+							"",
+							"if (numeros && numeros.length > 0) {",
+							"    postman.setNextRequest('numero_portugues');",
+							"} else {",
+							"    postman.setNextRequest(null);",
+							"}",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Numero em portugues\", function () {",
+							"    let jsonData = pm.response.json();",
+							"    pm.expect(jsonData.extenso).to.eql(pm.environment.get(\"ext\"));",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/{{numero}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"{{numero}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "numero_ingles",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "408e4a2f-82fd-4540-9bbd-ebf997e2963e",
+						"exec": [
+							"let numeros = pm.environment.get('numeros');",
+							"let extenso = pm.environment.get('extenso');",
+							"",
+							"if (!numeros) {",
+							"    numero = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 14, 15, 39, 56, 73, 123, 1356, 22687, -123, -45, -3487]",
+							"}",
+							"",
+							"if (!extenso) {",
+							"    extenso = [",
+							"        'zero',",
+							"        'one',",
+							"        'two',",
+							"        'three',",
+							"        'four',",
+							"        'five',",
+							"        'six',",
+							"        'seven',",
+							"        'eight',",
+							"        'nine',",
+							"        'ten',",
+							"        'eleven',",
+							"        'fourteen',",
+							"        'fifteeen',",
+							"        'thirty nine',",
+							"        'fifty six',",
+							"        'seventy three',",
+							"        'one hundred twenty three',",
+							"        'one thousand three hundred fifty six',",
+							"        'twenty two thousand six hundred eighty seven',",
+							"        'minus one hundred twenty three',",
+							"        'minus forty five',",
+							"        'minus three thousand four hundred eighty seven'",
+							"    ]",
+							"}",
+							"",
+							"let numeroAtual = numeros.shift();",
+							"let extensoAtual = extenso.shift();",
+							"",
+							"pm.environment.set(\"numero\", numeroAtual);",
+							"pm.environment.set('numeros', numeros);",
+							"pm.environment.set(\"ext\", extensoAtual);",
+							"pm.environment.set('extenso', extenso);",
+							"",
+							"// let random = Math.floor(Math.random()*numero.length)",
+							"",
+							"// pm.environment.set(\"numero\", numero[random]);",
+							"// pm.environment.set(\"extenso\", extenso[random]);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "476ad749-4b9d-40dd-ae75-1a823489bdac",
+						"exec": [
+							"let numeros = pm.environment.get('numeros');",
+							"",
+							"if (numeros && numeros.length > 0) {",
+							"    postman.setNextRequest('numero_ingles');",
+							"} else {",
+							"    postman.setNextRequest(null);",
+							"}",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Numero em ingles\", function () {",
+							"    let jsonData = pm.response.json();",
+							"    pm.expect(jsonData.full).to.eql(pm.environment.get(\"ext\"));",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/en/{{numero}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"en",
+						"{{numero}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Valor não numérico",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9dc673e7-490f-4148-b070-d6889e346006",
+						"exec": [
+							"pm.test(\"Valor não pode ser convertido\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Invalid data\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/asd",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"asd"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

@@ -1,0 +1,22 @@
+{
+  "name": "teste-qa-certi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lebmunoz/teste-qa-certi.git"
+  },
+  "author": "Luis Enrique Borba Muñoz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lebmunoz/teste-qa-certi/issues"
+  },
+  "homepage": "https://github.com/lebmunoz/teste-qa-certi#readme",
+  "dependencies": {
+    "newman": "^5.1.2"
+  }
+}

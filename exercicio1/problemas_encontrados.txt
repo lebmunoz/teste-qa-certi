@@ -1,0 +1,56 @@
+Site:
+  http://demo.automationtesting.in/Register.html
+
+Problemas encontrados:
+
+  - Bugs visuais:
+
+    - Inconsistência de linguagem entre os entre o nome dos campos e o texto nos tooltips de erro dos campos obrigatórios "Full Name", "Email address", "Phone", "Gender", "Country" e "Date Of Birth" são exibidos em Português, "Password" e "Confirm Password" em Inglês;
+
+    - Inconsistência na capitalização dos nomes dos campos;
+
+    - Inconsistência no estilo dos placeholders dos campos;
+
+    - Erro de grafia na opção do campo "Gender": "FeMale" deveria ser "Female";
+
+    - A hint que aparece ao passar o mouse sobre o campo "Email address" faz os outros campos abaixo se moverem 1px para baixo e para cima;
+
+    - Opções do campo "Gender" estão desalinhados verticalmente e poderiam estar alinhadas à esquerda para seguir o padrão dos outros campos;
+
+    - Opções do campo "Hobbies" possuem muitos problemas de alinhamento:
+      - A terceira opção está desalinhada com as outras duas;
+      - As opções poderiam estar alinhadas à esquerda;
+      - As opções poderiam estar alinhadas com o primeiro item ao lado da label do campo;
+
+    - A combobox do campo "Languages" possui um estilo incoerente com as outras comboboxes da página;
+
+    - O campo "Skills" está no plural, passando a impressão de ser possível selecionar mais que uma opção, porém só é possível selecionar uma opção;
+
+    - O campo "Select Country", além de ser redundante, lista apenas uma pequena quantidade de países e apresenta uma funcionalidade de busca que é incoerente com o tamanho da sua listagem;
+
+    - O campo "Select Country" é apresentado com um estilo de borda diferente dos outros campos da página;
+
+    - A label do campo "Select Country" apresenta dois pontos e está incoerente com o padrão dos outros campos da página;
+
+    - Tooltip de erro na formatação da senha no campo "Password" utiliza termos técnicos como "UpperCase,LowerCase";
+
+    - Erro de grafia no tooltip de erro no campo "Confirm password": "Passwords dont match", deveria ser "Passwords don't match";
+
+    - O botão "Refresh" possui a mesma cor do botão "Submit", mas ele é uma função secundária e poderia ter uma cor diferente;
+
+  
+  Bugs de funcionalidade:
+
+    - Existem dois campos para selecionar País ("Country" e "Select Country"), e apenas o primeiro é obrigatório;
+
+    - O campo "Phone" possui uma validação de formato, porém o formato não é exibido em nenhum lugar da página;
+
+    - Os campos "Date Of Birth", "Password" e "Confirm Password" são obrigatórios, porém não estão marcados com asterisco;
+
+    - O campo "Password" exige uma senha com mais de 6 caracteres, porém o requisito não é mostrado em nenhum lugar da página e só é validado e exibido ao clicar no botão de "Submit";
+
+    - O campo "Password" exige uma formatação de senha com uma letra maiúscula, uma letra minúscula e um número, mas esse requisito não é mostrado em nenhum lugar da página e só é validado e exibido ao clicar no botão de "Submit";
+
+    - O botão "Refresh" não exibe nenhum alerta de que irá apagar os dados já inseridos no formulário;
+
+    - O campo "Email address" não tem validação se o email possui uma parte ".com" ou similar;
