@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test-auto": "./node_modules/.bin/newman run exercicio3/teste-certi_2.postman_collection.json -e exercicio3/Teste_CERTI_2.postman_environment.json"
   },
   "repository": {
     "type": "git",
